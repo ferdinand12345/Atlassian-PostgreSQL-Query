@@ -23,6 +23,8 @@ INNER JOIN (
 	) = 8
 	AND build_agent_id IS NOT NULL
 ) A ON A .build_agent_id = q.queue_id
+WHERE
+	q.agent_type = 'REMOTE'
 GROUP BY
 	q.queue_id,
 	q.agent_type,
